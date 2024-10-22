@@ -1,6 +1,6 @@
 ﻿namespace PetsAndFleas.ConApp;
 
-internal class Program
+public class Program
 {
   public Program() => Main();
   static void Main()
