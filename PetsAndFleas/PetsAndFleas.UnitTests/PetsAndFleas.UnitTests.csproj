@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PetsAndFleas.ClassLibrary\PetsAndFleas.ClassLibrary.csproj" />
+    <ProjectReference Include="..\PetsAndFleas.ConApp\PetsAndFleas.ConApp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
 
