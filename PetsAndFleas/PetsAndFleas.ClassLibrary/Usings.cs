@@ -9,7 +9,6 @@ global using System.Collections.Generic;
 
 ///    MY USINGS    
 global using PetsAndFleas;
-global using PetsAndFleas.ConApp;
 global using PetsAndFleas.ClassLibrary;
 
 

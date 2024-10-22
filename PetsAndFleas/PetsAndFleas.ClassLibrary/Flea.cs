@@ -6,6 +6,7 @@ public class Flea
   public void JumpOnPet(Pet petToJumpOn) => _actualPet = petToJumpOn;
   public int BitePet(int amount)
   {
+
     int delta = 0;
     if (ActualPet != null)
     {
