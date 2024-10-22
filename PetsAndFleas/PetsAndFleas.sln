@@ -3,9 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleApp", "ConsoleApp", "{0F9F6668-232E-4B8B-BF8A-4CD02EAB494D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{51576BCF-6374-4AAF-AA95-68228C76C499}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classes", "Classes", "{C716C426-26C4-4A8E-8610-79E4FA6AE1DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsAndFleas.ConApp", "PetsAndFleas.ConApp\PetsAndFleas.ConApp.csproj", "{92923A8D-F512-4900-9C50-7A905B718B98}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92923A8D-F512-4900-9C50-7A905B718B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92923A8D-F512-4900-9C50-7A905B718B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92923A8D-F512-4900-9C50-7A905B718B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92923A8D-F512-4900-9C50-7A905B718B98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92923A8D-F512-4900-9C50-7A905B718B98} = {0F9F6668-232E-4B8B-BF8A-4CD02EAB494D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {576F14CB-0CA1-4BE9-A0DF-B65058B7808B}
