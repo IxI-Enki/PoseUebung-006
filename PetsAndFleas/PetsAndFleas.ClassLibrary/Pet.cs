@@ -1,78 +1,47 @@
-﻿namespace PetsAndFleas.ClassLibrary;
+﻿
+namespace PetsAndFleas.ClassLibrary;
 
 public abstract class Pet
 {
   #region METHODS
-  // {
-  //   int returnValue = amount;
-  //
-  //   if (returnValue < 0)
-  //   {
-  //     returnValue = 0;
-  //     throw new ArgumentException("Biteamount can't be nagative!" , nameof(amount));
-  //   }
-  //   else if (returnValue == 0)
-  //   {
-  //     returnValue = 0;
-  //   }
-  //   else if (amount > RemainingBites)
-  //   {
-  //     returnValue = RemainingBites;
-  //   }
-  //   else
-  //   { returnValue = amount; }
-  //   return returnValue;
-  // 
-  // }
-  public int GetBiten(int amount)
+  public int GetBiten(int numberOfBites)
   {
-    // CheckAmount(amount);
-    int actualBites;
-    Exception negativeAmountException = new();
 
+      int actualBites = 0;
     try
     {
-      if (amount <= 0)
-      {
-        actualBites = 0;
-        throw new ArgumentException("Can't be negative!" , negativeAmountException);
-      }
-      else if (amount > RemainingBites)
-      {
-        actualBites = RemainingBites;
-      }
-      else
-        actualBites = amount;
+      CheckBiteNumber(numberOfBites);
     }
-    catch (ArgumentException n)
+    catch (ArgumentException)
     {
-      actualBites = 0;
+     return 0;
     }
-    RemainingBites = RemainingBites - actualBites;
+    finally
+    {
 
-    return actualBites;
-    /* amount < 0 ?  :
-      // amount == 0 ? 0 :
-      // amount > RemainingBites ? RemainingBites :
-      // amount;
-      */
+
+      if (numberOfBites > RemainingBites)
+        actualBites = RemainingBites;
+      else if (numberOfBites <= 0)
+        actualBites = 0;
+      else
+        actualBites = numberOfBites;
+
+
+      _remainingBites -=  actualBites;
+
+    }
+      return actualBites;
+
   }
 
-  private bool CheckAmount(int amount)
+  private void CheckBiteNumber(int numberOfBites)
   {
-    try
-    {
-      if (amount > 0)
-        return true;
-    }
-    catch
-    {
-      throw new ArgumentException("Can't be negative!");
-    }
-    return false;
+    if (numberOfBites <= 0)
+      throw new ArgumentException("Number of Bites can't be 0 or negative!");
+
   }
   #endregion
-
 
 
   #region CONSTRUCTOR
@@ -82,16 +51,14 @@ public abstract class Pet
   }
   #endregion
 
-  #region PROPERTIES
-  public int PetID { get => _petID; }
-  public int RemainingBites 
-  { 
-    get => _remainingBites; 
-    private set => _remainingBites = value; 
-  }
 
-  public static int LastPetID { get => _lastPetID++; }
+  #region PROPERTIES
+  public int PetID => _petID;
+  public int RemainingBites => _remainingBites > 0 ? _remainingBites : 0;
+
+  public static int LastPetID => _lastPetID++;
   #endregion
+
 
   #region FIELDS
   private int

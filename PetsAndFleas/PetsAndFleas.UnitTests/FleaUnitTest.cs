@@ -8,20 +8,30 @@
 public class FleaUnitTest
 {
 
+  static Flea
+    f1 = new(),
+    f2 = new(),
+    f3 = new();
+
+  static Pet p1 = new Cat(),
+    p2 = new Cat(),
+    p3 = new Dog();
+
   [TestMethod]
   public void ItShouldReducePetRemainingBites_GivenValidBiteAmount()
   {
+    Pet p = new Cat();
+    Flea f = new();
     // Arrange
-    Pet p1 = new Cat();
-    Flea f1 = new();
-    f1.JumpOnPet(p1);
+    f .JumpOnPet(p );
 
     // Act
-    int result = f1.BitePet(40);
+    int result = f .BitePet(40);
 
     // Assert
-    Assert.AreEqual(60 , p1.RemainingBites , "Nach 40 Bissen sollten 60 übrig sein!");
-    Assert.AreEqual(40 , f1.AmountBites , "Floh 1 sollte 40 Bisse vollzogen haben!");  // actual 40
+    Assert.AreEqual(60 , p .RemainingBites , "Nach 40 Bissen sollten 60 übrig sein!");
+
+    Assert.AreEqual(40 , f  .AmountBites , "Floh 1 sollte 40 Bisse vollzogen haben!");
     Assert.AreEqual(60 , result , "Es sollten 60 verbleibende Bisse zurückgegeben werden.");
   }
 
@@ -30,8 +40,6 @@ public class FleaUnitTest
   public void ItShouldReturnRemainingBites_GivenBiteAmountExceedingRemainingBites()
   {
     // Arrange
-    Pet p1 = new Cat();
-    Flea f1 = new();
     f1.JumpOnPet(p1);
 
     f1.BitePet(40); // 60 Bisse übrig
@@ -41,7 +49,7 @@ public class FleaUnitTest
 
     // Assert
     Assert.AreEqual(60 , result , "Es sind nur noch 60 Bisse übrig, daher sollte 60 zurückgegeben werden.");
-    Assert.AreEqual(40 , f1.AmountBites , "Floh 1 sollte 100 Bisse vollzogen haben.");
+    Assert.AreEqual(100 , f1.AmountBites , "Floh 1 sollte 100 Bisse vollzogen haben.");
     Assert.AreEqual(0 , p1.RemainingBites , "Alle Bisse des Haustiers sollten aufgebraucht sein.");
   }
 
@@ -50,8 +58,7 @@ public class FleaUnitTest
   public void ItShouldReturnMaxBites_GivenAnotherPetWithFullBiteCapacity()
   {
     // Arrange
-    Pet p2 = new Cat();
-    Flea f1 = new();
+
     f1.JumpOnPet(p2);
 
     // Act
@@ -67,8 +74,6 @@ public class FleaUnitTest
   public void ItShouldReturnZero_GivenNegativeBiteAmount()
   {
     // Arrange
-    Pet p3 = new Dog();
-    Flea f2 = new();
     f2.JumpOnPet(p3);
 
     // Act
@@ -84,8 +89,6 @@ public class FleaUnitTest
   public void ItShouldReturnZero_GivenFleaNotOnAnyPet()
   {
     // Arrange
-    Flea f1 = new();
-    Flea f3 = new();
 
     // Act
     f1.JumpOnPet(null); // Floh auf keinem Haustier
@@ -137,8 +140,7 @@ public class FleaUnitTest
   public void ItShouldThrowArgumentException_GivenNegativeBiteAmount()
   {
     // Arrange
-    Pet p3 = new Dog();
-    Flea f2 = new();
+
     f2.JumpOnPet(p3);
 
     // Act & Assert
@@ -150,7 +152,6 @@ public class FleaUnitTest
   public void ItShouldThrowInvalidOperationException_GivenFleaNotOnAnyPetAndAttemptToBite()
   {
     // Arrange
-    Flea f1 = new();
 
     // Act & Assert
     Assert.ThrowsException<InvalidOperationException>(() => f1.BitePet(100) , "Floh sollte eine InvalidOperationException auslösen, wenn versucht wird zu beißen, ohne auf einem Haustier zu sein.");
@@ -161,7 +162,6 @@ public class FleaUnitTest
   public void ItShouldThrowArgumentNullException_GivenJumpOnNullPet()
   {
     // Arrange
-    Flea f1 = new();
 
     // Act & Assert
     Assert.ThrowsException<ArgumentNullException>(() => f1.JumpOnPet(null) , "Das Springen auf null sollte eine ArgumentNullException auslösen.");
