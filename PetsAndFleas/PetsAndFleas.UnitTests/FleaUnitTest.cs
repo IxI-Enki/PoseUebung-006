@@ -107,7 +107,7 @@ public class FleaUnitTest
     Assert.AreEqual(100 , result , "Es sind nur 100 Bisse möglich, daher sollte 100 zurückgegeben werden.");
     Assert.AreEqual(200 , f1.AmountBites , "Floh sollte insgesamt 200 Bisse vollzogen haben.");
   }
-#endregion
+  #endregion
 
   #region EXCEPTION TESTS
 

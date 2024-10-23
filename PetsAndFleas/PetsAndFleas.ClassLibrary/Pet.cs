@@ -1,25 +1,22 @@
-﻿
-namespace PetsAndFleas.ClassLibrary;
+﻿namespace PetsAndFleas.ClassLibrary;
 
 public abstract class Pet
 {
   #region METHODS
   public int GetBiten(int numberOfBites)
   {
+    int actualBites;
 
-      int actualBites = 0;
     try
     {
       CheckBiteNumber(numberOfBites);
     }
     catch (ArgumentException)
     {
-     return 0;
+      return 0;
     }
     finally
     {
-
-
       if (numberOfBites > RemainingBites)
         actualBites = RemainingBites;
       else if (numberOfBites <= 0)
@@ -27,22 +24,16 @@ public abstract class Pet
       else
         actualBites = numberOfBites;
 
-
-      _remainingBites -=  actualBites;
-
+      _remainingBites -= actualBites;
     }
-      return actualBites;
-
+    return actualBites;
   }
 
-  private void CheckBiteNumber(int numberOfBites)
-  {
-    if (numberOfBites <= 0)
-      throw new ArgumentException("Number of Bites can't be 0 or negative!");
-
-  }
+  private bool CheckBiteNumber(int numberOfBites)
+    => (numberOfBites <= 0) ?
+        throw new ArgumentException("Number of Bites can't be 0 or negative!")
+        : true;
   #endregion
-
 
   #region CONSTRUCTOR
   public Pet()
@@ -51,14 +42,12 @@ public abstract class Pet
   }
   #endregion
 
-
   #region PROPERTIES
   public int PetID => _petID;
-  public int RemainingBites => _remainingBites > 0 ? _remainingBites : 0;
+  public int RemainingBites => Math.Max(_remainingBites , 0);
 
   public static int LastPetID => _lastPetID++;
   #endregion
-
 
   #region FIELDS
   private int
