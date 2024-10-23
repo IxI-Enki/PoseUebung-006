@@ -9,7 +9,7 @@ public class FleaUnitTest
 {
   #region FIELDS
   private static Flea? f1, f2, f3;
-  private static Pet? p1, p2, p3;
+  private static Pet? p1, p2, p3, p4;
   #endregion
 
   #region INIT-TESTS
@@ -22,6 +22,7 @@ public class FleaUnitTest
     p1 = new Cat();
     p2 = new Cat();
     p3 = new Dog();
+    p4 = new Cat();
   }
   #endregion
 
@@ -31,21 +32,18 @@ public class FleaUnitTest
   {
     // Arrange
     int startID = Pet.LastPetID;
-    Pet p1 = new Cat();
+    Pet c1 = new Cat();
     Pet p2 = new Dog();
-    Flea f1 = new();
-    Flea f2 = new();
-    Flea f3 = new();
-
+ 
     // Act
-    f1.JumpOnPet(p1);
+    f1.JumpOnPet(c1);
     f2.JumpOnPet(p2);
-    f3.JumpOnPet(p1);
+    f3.JumpOnPet(c1);
 
     // Assert
-    Assert.AreEqual(startID + 1 , f1.ActualPet.PetID , "Floh 1 sollte auf Pet ID {0} sitzen!" , startID + 1);
-    Assert.AreEqual(startID + 2 , f2.ActualPet.PetID , "Floh 2 sollte auf Pet ID {0} sitzen!" , startID + 2);
-    Assert.AreEqual(startID + 1 , f3.ActualPet.PetID , "Floh 3 sollte auf Pet ID {0} sitzen!" , startID + 1);
+    Assert.AreEqual(startID + 1 , f1.ActualPet!.PetID , "Floh 1 sollte auf Pet ID {0} sitzen!" , startID + 1);
+    Assert.AreEqual(startID + 2 , f2.ActualPet!.PetID , "Floh 2 sollte auf Pet ID {0} sitzen!" , startID + 2);
+    Assert.AreEqual(startID + 1 , f3.ActualPet!.PetID , "Floh 3 sollte auf Pet ID {0} sitzen!" , startID + 1);
 
     // Act: Floh 3 springt auf Pet 2
     f3.JumpOnPet(p2);
@@ -63,16 +61,16 @@ public class FleaUnitTest
   [TestMethod]
   public void ItShouldReducePetRemainingBites_GivenValidBiteAmount()
   {
-    Pet p = new Cat();
     Flea f = new();
     // Arrange
-    f.JumpOnPet(p);
+    f.JumpOnPet(p4!);
 
     // Act
-    int result = f.BitePet(40);
+    f.BitePet(40);
+    int result = p4!.RemainingBites;
 
     // Assert
-    Assert.AreEqual(60 , p.RemainingBites , "Nach 40 Bissen sollten 60 übrig sein!");
+    Assert.AreEqual(60 , p4.RemainingBites , "Nach 40 Bissen sollten 60 übrig sein!");
 
     Assert.AreEqual(40 , f.AmountBites , "Floh 1 sollte 40 Bisse vollzogen haben!");
     Assert.AreEqual(60 , result , "Es sollten 60 verbleibende Bisse zurückgegeben werden.");
