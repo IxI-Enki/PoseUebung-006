@@ -35,13 +35,17 @@ public class Flea
         possibleBites = 0;
       _amountBites += possibleBites;
     }
-
- 
-      return possibleBites;
+    return possibleBites;
   }
 
-  private bool CheckAmount(int amount) => (amount <= 0) ? throw new ArgumentException("! BiteAmount can't be 0 or negative !") : true;
-  private bool CheckForMountedPet() => (ActualPet == null) ? throw new InvalidOperationException("! There is no Pet to bite !") : true;
+  private bool CheckAmount(int amount)
+    => (amount <= 0) ?
+        throw new ArgumentException("! BiteAmount can't be 0 or negative !")
+        : true;
+  private bool CheckForMountedPet()
+    => (ActualPet == null) ? 
+        throw new InvalidOperationException("! There is no Pet to bite !") 
+        : true;
   #endregion
 
 
