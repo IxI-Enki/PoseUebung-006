@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="">
+    <Position X="9.398" Y="4.48" Height="0.981" Width="1.7" />
+  </Comment>
+  <Comment CommentText="">
+    <Position X="9.414" Y="5.563" Height="0.75" Width="1.7" />
+  </Comment>
   <Class Name="PetsAndFleas.ClassLibrary.Pet">
     <Position X="11.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAAAAAABAoAAAAAAAQAAAAAAAAAAAAAAQQ=</HashCode>
+      <HashCode>AAAAAQAEAAAAAAAABAoAAAAAAAQAAAAAAAAAAAAAAQQ=</HashCode>
       <FileName>Pet.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -22,14 +28,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="PetsAndFleas.ClassLibrary.Flea">
-    <Position X="8.75" Y="3" Width="1.5" />
+    <Position X="7.75" Y="3" Width="1.5" />
     <AssociationLine Name="_actualPet" Type="PetsAndFleas.ClassLibrary.Pet">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.321" Y="0.077" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAEACAEIAAAAACAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAAAAAIAAIAAAAAAEACAAIAAAAACAgAA=</HashCode>
       <FileName>Flea.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

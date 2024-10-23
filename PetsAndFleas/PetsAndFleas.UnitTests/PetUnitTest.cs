@@ -21,7 +21,6 @@ public class PetUnitTest
     Assert.AreEqual(100 , p2.RemainingBites , "Remaining Bites von p2 falsch initialisiert!");
     Assert.AreEqual(100 , p3.RemainingBites , "Remaining Bites von p3 falsch initialisiert!");
   }
-
   [TestMethod]
   public void ItShouldReduceRemainingBites_GivenBiteAmount()
   {
@@ -34,7 +33,6 @@ public class PetUnitTest
     // Assert
     Assert.AreEqual(60 , p1.RemainingBites , "Nach 40 Bissen sollten 60 übrig sein!");
   }
-
   [TestMethod]
   public void ItShouldReturnRemainingBites_GivenBiteAmountExceedingRemainingBites()
   {
@@ -49,7 +47,6 @@ public class PetUnitTest
     Assert.AreEqual(60 , result , "Es sind nur 60 Bisse übrig, daher sollte 60 zurückgegeben werden.");
     Assert.AreEqual(0 , p1.RemainingBites , "Alle Bisse von p1 sollten aufgebraucht sein.");
   }
-
   [TestMethod]
   public void ItShouldReturnMaxRemainingBites_GivenBiteAmountExceedingCapacity()
   {
@@ -70,7 +67,7 @@ public class PetUnitTest
   /// <summary>
   /// Thrown Exception
   /// </summary>
-  [TestMethod]
+  [TestMethod]                                                                      ///   FAILS STILL !!
   public void ItShouldThrowArgumentException_GivenNegativeBiteAmount()
   {
     // Arrange
@@ -79,8 +76,7 @@ public class PetUnitTest
     // Act & Assert
     Assert.ThrowsException<ArgumentException>(() => p3.GetBiten(-100) , "Eine negative Bissanzahl sollte eine ArgumentException auslösen.");
   }
-
-  [TestMethod]
+  [TestMethod]                                                                      ///   FAILS STILL !!
   public void ItShouldThrowArgumentException_GivenZeroBiteAmount()
   {
     // Arrange
@@ -106,7 +102,6 @@ public class PetUnitTest
     Assert.AreEqual(0 , result , "Negative Bissanzahl nicht möglich! 0 als Rückgabewert erwartet.");
     Assert.AreEqual(100 , p3.RemainingBites , "Es sollten immer noch 100 Bisse übrig sein.");
   }
-
   [TestMethod]
   public void ItShouldReturnZero_GivenZeroBiteAmount()
   {
@@ -120,6 +115,5 @@ public class PetUnitTest
     Assert.AreEqual(0 , result , "Eine Bissanzahl von 0 sollte keinen Effekt haben und 0 zurückgeben.");
     Assert.AreEqual(100 , p3.RemainingBites , "Es sollten immer noch 100 Bisse übrig sein.");
   }
-
-  #endregion
+    #endregion    
 }

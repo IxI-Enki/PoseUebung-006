@@ -38,16 +38,18 @@ public abstract class Pet
   #region CONSTRUCTOR
   public Pet()
   {
-    _petID = ReturnIncrementedLastPetID();
+    PetID = LastPetID + 1;
+    LastPetID++;
   }
   #endregion
 
   #region PROPERTIES
-  public int PetID => _petID;
+  public int PetID { get => _petID; private set => _petID = value; }
   public int RemainingBites => Math.Max(_remainingBites , 0);
 
-  public static int LastPetID { get => _lastPetID; }
-  private int ReturnIncrementedLastPetID() => _lastPetID++;
+  public static int LastPetID { get => _lastPetID; private set => _lastPetID = value; }
+
+
   #endregion
 
   #region FIELDS

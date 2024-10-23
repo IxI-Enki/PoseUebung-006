@@ -33,11 +33,11 @@ public class FleaUnitTest
     // Arrange
     int startID = Pet.LastPetID;
     Pet c1 = new Cat();
-    Pet p2 = new Dog();
+    Pet d2 = new Dog();
  
     // Act
     f1.JumpOnPet(c1);
-    f2.JumpOnPet(p2);
+    f2.JumpOnPet(d2);
     f3.JumpOnPet(c1);
 
     // Assert
@@ -46,7 +46,7 @@ public class FleaUnitTest
     Assert.AreEqual(startID + 1 , f3.ActualPet!.PetID , "Floh 3 sollte auf Pet ID {0} sitzen!" , startID + 1);
 
     // Act: Floh 3 springt auf Pet 2
-    f3.JumpOnPet(p2);
+    f3.JumpOnPet(d2);
 
     // Assert
     Assert.AreEqual(startID + 2 , f3.ActualPet.PetID , "Floh 3 sollte nach Übersprung auf Pet ID {0} sitzen!" , startID + 2);
@@ -57,7 +57,6 @@ public class FleaUnitTest
     // Assert
     Assert.IsNull(f3.ActualPet , "Floh 3 sollte nach Absprung auf keinem Tier sitzen.");
   }
-
   [TestMethod]
   public void ItShouldReducePetRemainingBites_GivenValidBiteAmount()
   {
@@ -75,7 +74,6 @@ public class FleaUnitTest
     Assert.AreEqual(40 , f.AmountBites , "Floh 1 sollte 40 Bisse vollzogen haben!");
     Assert.AreEqual(60 , result , "Es sollten 60 verbleibende Bisse zurückgegeben werden.");
   }
-
   [TestMethod]
   public void ItShouldReturnRemainingBites_GivenBiteAmountExceedingRemainingBites()
   {
@@ -92,7 +90,6 @@ public class FleaUnitTest
     Assert.AreEqual(100 , f1.AmountBites , "Floh 1 sollte 100 Bisse vollzogen haben.");
     Assert.AreEqual(0 , p1.RemainingBites , "Alle Bisse des Haustiers sollten aufgebraucht sein.");
   }
-
   [TestMethod]
   public void ItShouldReturnMaxBites_GivenAnotherPetWithFullBiteCapacity()
   {
@@ -120,15 +117,13 @@ public class FleaUnitTest
     // Act & Assert
     Assert.ThrowsException<ArgumentException>(() => f2.BitePet(-100) , "Negative Bissanzahl sollte eine ArgumentException auslösen!");
   }
-
-  [TestMethod]
+  [TestMethod]                                                                      ///   FAILS STILL !!
   public void ItShouldThrowInvalidOperationException_GivenFleaNotOnAnyPetAndAttemptToBite()
   {
     // Act & Assert
     Assert.ThrowsException<InvalidOperationException>(() => f1.BitePet(100) , "Floh sollte eine InvalidOperationException auslösen, wenn versucht wird zu beißen, ohne auf einem Haustier zu sein.");
   }
-
-  [TestMethod]
+  [TestMethod]                                         
   public void ItShouldThrowArgumentNullException_GivenJumpOnNullPet()
   {
     // Act & Assert
@@ -138,7 +133,7 @@ public class FleaUnitTest
   /// <summary>
   /// Error-corrected returns
   /// </summary>
-  [TestMethod]
+  [TestMethod]                                                                      ///   FAILS STILL !!
   public void ItShouldReturnZero_GivenNegativeBiteAmount()
   {
     // Arrange
@@ -151,8 +146,7 @@ public class FleaUnitTest
     Assert.AreEqual(0 , result , "Negative Bissanzahl nicht möglich! 0 als Rückgabewert erwartet.");
     Assert.AreEqual(0 , f2.AmountBites , "Es sollten keine Bisse gezählt werden.");
   }
-
-  [TestMethod]
+  [TestMethod]                                                                      ///   FAILS STILL !!
   public void ItShouldReturnZero_GivenFleaNotOnAnyPet()
   {
     // Act

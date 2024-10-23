@@ -9,13 +9,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classes", "Classes", "{C716C426-26C4-4A8E-8610-79E4FA6AE1DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsAndFleas.ConApp", "PetsAndFleas.ConApp\PetsAndFleas.ConApp.csproj", "{92923A8D-F512-4900-9C50-7A905B718B98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetsAndFleas.ConApp", "PetsAndFleas.ConApp\PetsAndFleas.ConApp.csproj", "{92923A8D-F512-4900-9C50-7A905B718B98}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{A4842D94-BA0C-456E-9A2E-25D9F9F238B3}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsAndFleas.ClassLibrary", "PetsAndFleas.ClassLibrary\PetsAndFleas.ClassLibrary.csproj", "{90B57630-7026-4D4B-8164-020FAF78281C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetsAndFleas.ClassLibrary", "PetsAndFleas.ClassLibrary\PetsAndFleas.ClassLibrary.csproj", "{90B57630-7026-4D4B-8164-020FAF78281C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsAndFleas.UnitTests", "PetsAndFleas.UnitTests\PetsAndFleas.UnitTests.csproj", "{8F40449E-6FBC-4D29-B9BA-C161409B4EE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetsAndFleas.UnitTests", "PetsAndFleas.UnitTests\PetsAndFleas.UnitTests.csproj", "{8F40449E-6FBC-4D29-B9BA-C161409B4EE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

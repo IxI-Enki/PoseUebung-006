@@ -7,18 +7,32 @@ public class Flea
   {
     try
     {
-      CheckForPet(petToJumpOn);
+      petToJumpOn = TryJumping(petToJumpOn);
     }
-    catch (InvalidOperationException  )
+    catch (ArgumentNullException)
     {
       petToJumpOn = null;
-      throw new ArgumentNullException();
+    }
+  }
+
+  private Pet TryJumping(Pet petToJumpOn , Exception? noPetExec = null)
+  {
+    try
+    {
+      CheckForPet(petToJumpOn);
+    }
+    catch (InvalidOperationException e)
+    {
+      throw new ArgumentNullException("! Cannot jump on no pet !" , noPetExec=e);
     }
     finally
     {
       _actualPet = petToJumpOn;
     }
+
+    return petToJumpOn;
   }
+
   public int BitePet(int amount)
   {
     int possibleBites;
@@ -46,14 +60,14 @@ public class Flea
     return possibleBites;
   }
 
-  private bool CheckAmount(int amount, Exception? invalidBiteAmountExec = null)
+  private bool CheckAmount(int amount , Exception? invalidBiteAmountExec = null)
     => (amount <= 0) ?
-        throw new ArgumentException("! BiteAmount can't be 0 or negative !", invalidBiteAmountExec)
+        throw new ArgumentException("! BiteAmount can't be 0 or negative !" , invalidBiteAmountExec)
         : true;
 
-  private bool CheckForPet(Pet? petToCheck, Exception? noPetExec = null)
+  private bool CheckForPet(Pet? petToCheck , Exception? noPetExec = null)
     => (petToCheck == null) ?
-        throw new InvalidOperationException($"! There is no Pet - {nameof(petToCheck)} !",noPetExec)
+        throw new InvalidOperationException($"! There is no Pet - {nameof(petToCheck)} !" , noPetExec)
         : true;
   #endregion
 
